@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.SERVER_API_URL || "/api",
+  baseURL: import.meta.env.VITE_API_URL 
 });
 
 // Attach the JWT (if present) to every outgoing request.
@@ -31,7 +31,7 @@ export const fetchMyPastes = (page = 1) =>
   api.get("/pastes/mine", { params: { page } });
 
 export const rawPasteUrl = (id, password) => {
-  const base = (import.meta.env.SERVER_API_URL || "/api") + `/pastes/${id}/raw`;
+  const base = (import.meta.env.VITE_API_URL || "/api") + `/pastes/${id}/raw`;
   return password ? `${base}?password=${encodeURIComponent(password)}` : base;
 };
 
