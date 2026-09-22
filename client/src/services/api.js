@@ -19,7 +19,7 @@ export const loginUser = (data) => api.post("/auth/login", data);
 export const fetchMe = () => api.get("/auth/me");
 
 // ---- Pastes ----
-export const createPaste = (data) => api.post("/pastes", data);
+export const createPaste = (data) => api.post("/pastes/", data);
 export const fetchPaste = (id, password) =>
   api.get(`/pastes/${id}`, { params: password ? { password } : {} });
 export const fetchStats = (id) => api.get(`/pastes/${id}/stats`);
